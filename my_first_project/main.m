@@ -7,35 +7,47 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        int answer = 0;
-        int guess = 0;
-        int turn = 1;
+//        int answer = 0;
+//        int guess = 0;
+//        int turn = 1;
+//        
+//        answer = arc4random() % 100 + 1;
+//        NSLog(@"The random number is %i", answer);
+//        
+//        while (guess != answer) {
+//            NSLog(@"Turn #%i. Guess the number", turn);
+//            scanf("%i", &guess);
+//            NSLog(@"You guessed %i", guess);
+//            
+//            if (guess > answer){
+//                NSLog(@"Lower");
+//                
+//            }
+//            else if (guess < answer){
+//                NSLog(@"Higer");
+//            }
+//            else{
+//                NSLog(@"Congratulations! You guessed right. It took you %i turns to get it right.", turn);
+//            }
+//            
+//            turn++; // incrementing turn;
+//            
+//        }
+        char answer;
         
-        answer = arc4random() % 100 + 1;
-        NSLog(@"The random number is %i", answer);
-        
-        while (guess != answer) {
-            NSLog(@"Turn #%i. Guess the number", turn);
-            scanf("%i", &guess);
-            NSLog(@"You guessed %i", guess);
+        do {
+            Person *newPerson = [[Person alloc] init];
+            [newPerson enterInfo];
+            [newPerson printInfo];
             
-            if (guess > answer){
-                NSLog(@"Lower");
-                
-            }
-            else if (guess < answer){
-                NSLog(@"Higer");
-            }
-            else{
-                NSLog(@"Congratulations! You guessed right. It took you %i turns to get it right.", turn);
-            }
+            NSLog(@"Do you want to enter another name? (y\n)");
+            scanf("%s", &answer );
             
-            turn++; // incrementing turn;
-            
-        }
+        }while(answer == 'y');
         
     }
     return 0;
